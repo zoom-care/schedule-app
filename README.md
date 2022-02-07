@@ -7,9 +7,17 @@ Welcome to the React/Typescript front-end developer challenge! If you are here y
 The ZoomCare Candidate Code Challenges are intended to take between 1 and 2 hours to complete. This is not intended to be an extensive test of your programing skills or knowledge, but rather as a starting point for further conversations during the application process.
 
 ## Requirements
-- Node >14 / NPM >6
-- run `npm i`
-- run `npm start`
+```shell
+node -v
+# v14.x
+
+npm -v
+# v6.x
+
+npm install
+
+npm start
+```
 
 ## Instructions
 1. Create a UI ([screenshot](#example) below) by using the provided mock endpoints that consists of a list of "provider" elements that are populated by what you get from the `/api/appointments` endpoint ([list of endpoints](#endpoints) is below). Each "provider" element should have:
