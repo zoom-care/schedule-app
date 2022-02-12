@@ -38,7 +38,7 @@ export const handlers = [
         }
 
         const { clinicId } = req.params
-
+        
         const clinic = mockClinics.find(c => c.id === parseInt(clinicId, 10));
         if (clinic) {
             return res(context.status(200), context.json(clinic))

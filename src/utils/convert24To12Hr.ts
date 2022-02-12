@@ -1,0 +1,1 @@
+export const convert24HrTo12 = (dataTime: number) => dataTime % 12 || 12

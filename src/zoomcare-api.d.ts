@@ -1,13 +1,13 @@
-export interface AppointmentsDto {
-    appointmentSlots: AppointmentSlot[];
-}
-
 export interface AppointmentSlot {
     id: number;
     startTime: string;
     clinicId: number;
     durationInMinutes: number;
     provider: Provider;
+}
+
+export interface AppointmentsDto {
+    appointmentSlots: AppointmentSlot[];
 }
 
 export interface Clinic {
@@ -19,16 +19,16 @@ export interface Clinic {
     zipcode: string;
 }
 
+export interface ClinicsDto {
+    clinics: Clinic[];
+}
+
 export interface Provider {
     id: number;
     name: string;
     credentials?: string;
     language?: string;
     phoneNumber?: string;
-}
-
-export interface ClinicsDto {
-    clinics: Clinic[];
 }
 
 export interface Login {

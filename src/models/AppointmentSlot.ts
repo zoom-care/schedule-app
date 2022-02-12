@@ -14,6 +14,8 @@ export interface IAppointmentsDto {
 }
 
 export interface IAppointments {
-    clinic: IClinic,
-    provider: IProvider
+    clinic?: IClinic;
+    provider: IProvider;
+    date: any;
+    timeSlots: any;
 }

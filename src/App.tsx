@@ -1,15 +1,15 @@
 import './App.css';
+import { Box } from '@mui/material';
 import Appointments from './containers/Appointments'
 
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header"></header>
-      <main>
-          <Appointments />
-      </main>
-    </div>
+    <Box component='div' className="App">
+      <header className="App-header">Header</header>
+      <main className="App-body"><Appointments /></main>
+      <footer className="App-footer">Footer</footer>
+    </Box>
   );
 }
 
