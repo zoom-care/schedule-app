@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mui/material": "^5.4.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -42,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@fontsource/roboto": "^4.5.3",
     "cross-env": "^7.0.3",
     "msw": "^0.36.8"
   },
