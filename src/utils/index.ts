@@ -1,4 +1,5 @@
 export * from './convert24To12Hr'
+export * from './convertStateNametoAbbrev'
 export * from './formatPhoneNumber'
 export * from './getTimeSlots'
 export * from './mergeNameAndCred'

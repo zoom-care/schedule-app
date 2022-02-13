@@ -10,11 +10,13 @@ export const getTimeSlots = (startTime: string, gap: number) => {
         end: new Date(+year, +month, +day, +timeTo.substring(0,2))
     }, { step: gap })
 
-    const first3TimeSlots = result.slice(-3)
-                            .map(dateTime => {
-                                // return `${dateTime.getHours()}:${dateTime.getMinutes()}`
-                                return format(dateTime, "h:mm a")
-                            })                       
-    return first3TimeSlots
+    return result.map(dateTime => format(dateTime, "h:mm a"))
 }
+
+
 //2020-02-08 21:00-07:00"
+// const first3TimeSlots = result.slice(+`-${arraySize}`)
+//                         .map(dateTime => {
+//                             // return `${dateTime.getHours()}:${dateTime.getMinutes()}`
+//                             return format(dateTime, "h:mm a")
+//                         })                       

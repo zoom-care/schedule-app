@@ -5,7 +5,8 @@ export const ProviderLogo = () => (
         component='img' 
         src={`${process.env.PUBLIC_URL}/provider.png`} 
         alt='Provider logo' 
-        height='100px'
+        height='105px'
+        width='105px'
         borderRadius='50%'
     />
 )

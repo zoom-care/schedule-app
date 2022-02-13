@@ -5,11 +5,7 @@ import { IAppointmentSlot, IAppointments, IClinic } from '../models'
 import { fetchAppointments, fetchClinic } from '../api'
 import { getTimeSlots } from '../utils'
 
-interface Props {
-
-}
-
-const Appointments: React.FC<Props> = (): any => {
+const Appointments: React.FC = (): any => {
 
     const [appointmentSlots, setAppointmentSlots] = useState<IAppointmentSlot[]>([])
     const [appointments, setAppointments] = useState<IAppointments[]>([])
@@ -27,7 +23,6 @@ const Appointments: React.FC<Props> = (): any => {
             (async() => {
                 const aptmnts = await getAppointments(appointmentSlots)
                 setAppointments(aptmnts)
-                console.log('aptmnts: ', aptmnts)
             })()
         }
     }, [appointmentSlots])
@@ -50,7 +45,7 @@ const Appointments: React.FC<Props> = (): any => {
         appointments?.length 
         ?   <>{
                 appointments.map(
-                    ({date, clinic, provider, timeSlots}) => clinic && provider && 
+                    ({ date, clinic, provider, timeSlots }) => clinic && provider && 
                 <AppointmentCard key={`${clinic.id}-${provider.id}`} date={date} clinic={clinic} provider={provider} timeSlots={timeSlots} />)
             }</>
         :   <>No Appointments Found!</>
