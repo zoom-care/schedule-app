@@ -1,7 +1,7 @@
-import {rest} from 'msw'
-import {ApiError, AppointmentsDto, Clinic, ClinicsDto, Login, LoginResponse} from "../zoomcare-api";
-import {mockClinics} from "./data/clinics";
-import {mockAppointmentSlots} from "./data/appointmentSlots";
+import { rest } from 'msw'
+import { ApiError, AppointmentsDto, Clinic, ClinicsDto, Login, LoginResponse } from "../zoomcare-api";
+import { mockClinics } from "./data/clinics";
+import { mockAppointmentSlots } from "./data/appointmentSlots";
 
 const mockAuthToken = Math.random().toString(36).slice(2);
 
