@@ -11,7 +11,7 @@ export const AppointmentSlotCard = (props : AppointmentSlot) => {
         <p className="font-bold">{clinicDetail?.name}</p>
         <p>{clinicDetail?.address}</p>
         <p>{clinicDetail?.city}, <span className="uppercase">{clinicStateFormatted}</span> {clinicDetail?.zipcode}</p>
-      </div> : <div>Clinic not found!</div>}
+      </div> : <div className="font-bold text-red-800">Clinic not found!</div>}
       <ProviderDetailCard  {...providerProps}/>
     </div>
   )
