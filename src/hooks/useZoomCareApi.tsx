@@ -32,7 +32,7 @@ export const useZoomCareApi = () => {
         return appointmentsData;
     }
 
-    const onGetClinicDetail = async ({ clinicId, authToken } : any) => {
+    const onGetClinicDetail = async ({ clinicId, authToken } : any) => new Promise<Clinic>(async(resolve, reject) => {
         const response = await fetch(`${API_URL}/clinics/${clinicId}`,{
             method: 'GET',
             headers: {
@@ -42,9 +42,13 @@ export const useZoomCareApi = () => {
         });
 
         const clinicData = await response.json();
-        return clinicData;
-    }
-
+        
+        if(clinicData.id){
+            resolve(clinicData);
+        }else{
+            reject(clinicData);
+        }
+    })
     return {
         onSignIn,
         onGetAppointmentsDto,
