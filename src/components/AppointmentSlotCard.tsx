@@ -1,42 +1,18 @@
-import { useEffect, useState } from 'react';
-import { AppointmentSlot, Clinic } from '../zoomcare-api';
-
-import { useAuth } from '../context/Auth';
-import { useZoomCareApi } from '../hooks/useZoomCareApi';
+import { AppointmentSlot } from '../zoomcare-api';
+import { ProviderDetailCard } from './ProviderDetailCard';
+import { useAppointmentSlot } from '../hooks/useAppointmentSlot';
 
 export const AppointmentSlotCard = (props : AppointmentSlot) => {
-  const { id, startTime, clinicId, durationInMinutes, provider} = props;
-
-  console.log(provider);
-  const [ clinicDetail, seClinicDetail ] = useState<Clinic>()
-  const { authToken } = useAuth();
-  const { onGetClinicDetail } = useZoomCareApi();
-  
-  // console.log('props', props);
-
-
-  useEffect(() => {
-    console.log('clinicId:', clinicId)
-    onGetClinicDetail({ clinicId, authToken}).then((clinic : Clinic) => {
-      seClinicDetail(clinic);
-    }).catch((err) => {
-      console.log('error: ', err)
-    })
-  },[authToken]);
+  const { isNotExist, clinicDetail, clinicStateFormatted, providerProps} = useAppointmentSlot(props);
 
   return (
-    <div>
-      {clinicDetail?.name}
-      {clinicDetail?.address}
-      {clinicDetail?.state}
-      {clinicDetail?.zipcode}
-
-      <div>
-        {provider.name}
-        {provider.credentials}
-        {provider.phoneNumber}
-        {startTime}
-      </div>
+    <div className="w-full grid justify-start p-3 gap-4">
+      { !isNotExist ? <div>
+        <p className="font-bold">{clinicDetail?.name}</p>
+        <p>{clinicDetail?.address}</p>
+        <p>{clinicDetail?.city}, <span className="uppercase">{clinicStateFormatted}</span> {clinicDetail?.zipcode}</p>
+      </div> : <div>Clinic not found!</div>}
+      <ProviderDetailCard  {...providerProps}/>
     </div>
   )
 }
