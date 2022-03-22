@@ -1,8 +1,9 @@
-import { Login } from '../model/login.interface'
+import { Clinic, Login } from '../zoomcare-api';
 const API_URL = '/api';
 
-const useZoomCareApi = () => {
-    async function onSignIn({ username, password }: Login){
+export const useZoomCareApi = () => {
+    
+    const onSignIn = async ({ username, password }: Login) => {
         const response = await fetch(`${API_URL}/login`, {
             method: 'POST',
             headers: {
@@ -18,14 +19,35 @@ const useZoomCareApi = () => {
         return authData;
     }
 
-    function onSignOut(){
+    const onGetAppointmentsDto = async (authToken: string) => {
+        const response = await fetch(`${API_URL}/appointments`,{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization' : authToken
+            },
+        });
 
+        const appointmentsData = await response.json();
+        return appointmentsData;
+    }
+
+    const onGetClinicDetail = async ({ clinicId, authToken } : any) => {
+        const response = await fetch(`${API_URL}/clinics/${clinicId}`,{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization' : authToken
+            },
+        });
+
+        const clinicData = await response.json();
+        return clinicData;
     }
 
     return {
-        signIn : (props : Login) => onSignIn(props),
-        signOut : () => onSignOut()
+        onSignIn,
+        onGetAppointmentsDto,
+        onGetClinicDetail
     }
 }
-
-export default useZoomCareApi;
