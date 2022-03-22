@@ -1,10 +1,15 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState, useEffect, useContext, createContext } from 'react';
 import { useZoomCareApi } from '../hooks/useZoomCareApi';
-import { Login } from '../zoomcare-api';
+import { Login, LoginResponse } from '../zoomcare-api';
+
+
+const initialResponse = { username : "", authToken: ""};
+
+const AuthContext = createContext<LoginResponse>(initialResponse);
 
 export const AuthProvider = ({ children } : any) => {
-    const AuthContext = createContext({});
-    const [user, setUser] = useState({});
+    
+    const [user, setUser] = useState<LoginResponse>(initialResponse);
     const [loading, setLoading] = useState(true);
     const { onSignIn } = useZoomCareApi();
 
@@ -29,4 +34,8 @@ export const AuthProvider = ({ children } : any) => {
             {!loading && children}
         </AuthContext.Provider>
     )
+}
+
+export const useAuth = () => {
+    return useContext(AuthContext)
 }
