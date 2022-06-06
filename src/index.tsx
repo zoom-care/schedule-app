@@ -1,18 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {worker} from "./mocks/browser";
+import { worker } from "./mocks/browser";
+import { Provider } from 'react-redux'
+import './index.css';
+import configureStore from 'store/configureStore'
+import initialState from 'reducers/initialState'
+import ProviderContainer from 'components/provider/containers/ProviderContainer'
+
+const { store } = configureStore(initialState)
 
 worker.start({
     onUnhandledRequest: "bypass"
 })
 .then(() => {
-
     ReactDOM.render(
         <React.StrictMode>
-            <App/>
+            <Provider store={store}>
+                <ProviderContainer />
+            </Provider>
         </React.StrictMode>,
         document.getElementById('root')
     );
