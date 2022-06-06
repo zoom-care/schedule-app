@@ -26,7 +26,6 @@ function *getAppointments():any {
 
 function *getProviders(): any{
 	try {
-		console.log('dsa')
 		const login = yield call(loginUser);
 		const appointments = yield call(getAppointments);
 		const providers = yield all(appointments.map((appointment: any) =>

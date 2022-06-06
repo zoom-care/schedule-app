@@ -10,7 +10,7 @@ const ProviderContainer = (props: any) => {
     useEffect(() => {
         props.loginUser()
       }, []);
-      console.log(props.providersData)
+
     return (
         <ProviderView 
             providersData={props.providersData}

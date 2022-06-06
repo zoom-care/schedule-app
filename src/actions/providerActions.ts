@@ -14,7 +14,7 @@ const providerActions = {
 		}
   },
   
-  getProvidersSuccess(providers: any) {
+  getProvidersSuccess(providers: Array<any>) {
     return {
       type: actionTypes.GET_PROVIDERS_SUCCESS,
       providers,

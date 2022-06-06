@@ -7,8 +7,6 @@ const getProviders = (state: any ) => state.clinics.providers
 const providersSelector = createSelector(
 	[ getProviders, appointmentsSelector ],
 	(providers, appointments) => {
-		console.log(appointments)
-		console.log(providers)
 		const providersData = appointments.map((appointment: any) => {
 			const provider = providers.find((provider: any) => provider.id === appointment.clinicId)
 				return {
