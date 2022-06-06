@@ -25,7 +25,7 @@ const mockAppointmentSlots = [
         },
         startTime: "2020-02-08 21:00-07:00"
     },
-    /*{
+    {
         id: 3,
         clinicId: 2, // does not exist
         durationInMinutes: 30,
@@ -37,7 +37,7 @@ const mockAppointmentSlots = [
             phoneNumber: "+1 555-555-5555"
         },
         startTime: "2020-02-10 10:00-07:00"
-    }*/
+    }
 ]
 
 export { mockAppointmentSlots }

@@ -3,6 +3,7 @@ import { takeLatest, call, put, all } from 'redux-saga/effects';
 import actionTypes from 'actions/actionTypes'
 import providerActions from 'actions/providerActions'
 import providerSync from 'sync/providerSync'
+import { hasClinic } from 'helpers/providersHelper'
 
 
 function *loginUser():any {
@@ -17,8 +18,10 @@ function *getAppointments():any {
 	try {
 		const login = yield call(loginUser);
 		const appointments = yield call(providerSync.getAppointments,login.data.authToken)
-		yield put(providerActions.getAppointmentsSuccess(appointments.data.appointmentSlots))
-		return appointments.data.appointmentSlots
+		const clinicsAvailable = yield call(providerSync.getProviders, login.data.authToken)
+		const appointmentsWithClinic = appointments.filter((appointment: any) => hasClinic(clinicsAvailable, appointment.clinicId))
+		yield put(providerActions.getAppointmentsSuccess(appointmentsWithClinic))
+		return appointmentsWithClinic
 	} catch (error) {
 		yield put(providerActions.getAppointmentsFailed(error))
 	}

@@ -6,6 +6,11 @@ function parseTimes(time: string) {
     }
 }
 
+function hasClinic(clinicsAvailable: Array<any>, clinicId: Number):boolean {
+    return clinicsAvailable.some((clinic: any) => clinic.id === clinicId)
+}
+
 export {
-    parseTimes
+    parseTimes,
+    hasClinic,
 }

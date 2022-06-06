@@ -12,7 +12,9 @@ async function getAppointments(token: String) {
         headers: {
             'Authorization': `Basic ${token}` 
         }
-    })
+    }).then(response => {
+        return response.data.appointmentSlots
+      })
 }
 
 async function getProvider(clinicId: Number, token: String) {
@@ -25,10 +27,21 @@ async function getProvider(clinicId: Number, token: String) {
       })
 }
 
+async function getProviders(token: String) {
+    return await axios.get(`/api/clinics/`, {
+        headers: {
+            'Authorization': `Basic ${token}` 
+        }
+    }).then(response => {
+        return response.data.clinics
+      })
+}
+
 const syncExports = {
     login,
     getAppointments,
     getProvider,
+    getProviders,
 }
 
 export default syncExports
