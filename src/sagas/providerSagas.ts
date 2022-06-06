@@ -26,16 +26,15 @@ function *getAppointments():any {
 
 function *getProviders(): any{
 	try {
+		console.log('dsa')
 		const login = yield call(loginUser);
 		const appointments = yield call(getAppointments);
-		yield all(appointments.map((appointment: any) => {
-			const provider = call(providerSync.getProvider, appointment.clinicId, login.data.authToken)
-			put(providerActions.getProviderSuccess(provider))
-			return provider
-		}))
+		const providers = yield all(appointments.map((appointment: any) =>
+			call(providerSync.getProvider, appointment.clinicId, login.data.authToken)
+		))
+		yield put(providerActions.getProvidersSuccess(providers))
 	} catch (error) {
-		console.log(error)
-		yield put(providerActions.getProviderFailed(error))
+		yield put(providerActions.getProvidersFailed(error))
 	}
 }
 

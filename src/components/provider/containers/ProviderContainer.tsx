@@ -10,13 +10,15 @@ const ProviderContainer = (props: any) => {
     useEffect(() => {
         props.loginUser()
       }, []);
-
+      console.log(props.providersData)
     return (
-        <ProviderView />
+        <ProviderView 
+            providersData={props.providersData}
+        />
     )
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: never) {
     return providersSelector(state)
 }
 

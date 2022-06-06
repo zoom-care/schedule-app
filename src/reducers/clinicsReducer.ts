@@ -8,10 +8,10 @@ const clinicsReducer = (state = initialState, action: any) => {
                 ...state,
                 appointments: action.appointmentSlots,
             };
-        case actionTypes.GET_PROVIDER_SUCCESS:
+        case actionTypes.GET_PROVIDERS_SUCCESS:
             return {
                 ...state,
-                providers: [...state.providers, action.provider]
+                providers: action.providers
             }
 
         default:

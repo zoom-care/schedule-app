@@ -14,16 +14,16 @@ const providerActions = {
 		}
   },
   
-  getProviderSuccess(provider: any) {
+  getProvidersSuccess(providers: any) {
     return {
-      type: actionTypes.GET_PROVIDER_SUCCESS,
-      provider,
+      type: actionTypes.GET_PROVIDERS_SUCCESS,
+      providers,
 		}
   },
 
-  getProviderFailed(error: any) {
+  getProvidersFailed(error: any) {
     return {
-      type: actionTypes.GET_PROVIDER_FAILED,
+      type: actionTypes.GET_PROVIDERS_FAILED,
       error,
 		}
   },

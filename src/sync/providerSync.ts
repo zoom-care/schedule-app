@@ -16,12 +16,12 @@ async function getAppointments(token: String) {
 }
 
 async function getProvider(clinicId: Number, token: String) {
-    axios.get(`/api/clinics/${clinicId}`, {
+    return await axios.get(`/api/clinics/${clinicId}`, {
         headers: {
             'Authorization': `Basic ${token}` 
         }
     }).then(response => {
-        return response
+        return response.data
       })
 }
 
