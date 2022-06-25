@@ -9,10 +9,10 @@ The ZoomCare Candidate Code Challenges are intended to take between 1 and 2 hour
 ## Requirements
 ```shell
 node -v
-# v14.x
+# v16.x
 
 npm -v
-# v6.x
+# v8.x
 
 npm install
 
