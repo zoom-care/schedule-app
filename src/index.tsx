@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {worker} from "./mocks/browser";
+import "./index.scss";
 
 worker.start({
     onUnhandledRequest: "bypass"
