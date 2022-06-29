@@ -1,0 +1,16 @@
+.error-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.error-container button{
+    color: white;
+    background-color: rgb(12, 117, 155);
+    padding: 8px 10px;
+    border: none;
+    margin-top: 10px;
+    text-transform: uppercase;
+}

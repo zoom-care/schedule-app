@@ -1,0 +1,31 @@
+.appointments-container{
+    text-align: left;
+    border: 1px solid rgba(128, 128, 128, 0.73);
+    padding: 2% 5%;
+}
+
+.appointments-slots-button button{
+    color: white;
+    background-color: rgb(12, 117, 155);
+    padding: 8px 10px;
+    border: none;
+    margin-top: 10px;
+}
+
+.appointments-slots-button button:hover{
+    cursor: pointer;
+}
+
+.provider-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.provider-img{
+    width: 100px;
+}
+
+.provider-name{
+    color: rgb(12, 117, 155);
+}

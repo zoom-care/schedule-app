@@ -44,3 +44,17 @@ export interface LoginResponse {
 export interface ApiError {
     error: string;
 }
+
+export interface IMappedData {
+    id: number;
+    startTime: string;
+    clinicId: number;
+    durationInMinutes: number;
+    provider: Provider;
+    clinic: Clinic
+}
+
+export interface IUserContext {
+    user: LoginResponse | null,
+    handleSetUser: (newUser: LoginResponse) => void
+}
