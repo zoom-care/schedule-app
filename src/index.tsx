@@ -9,7 +9,6 @@ worker.start({
     onUnhandledRequest: "bypass"
 })
 .then(() => {
-
     ReactDOM.render(
         <React.StrictMode>
             <App/>

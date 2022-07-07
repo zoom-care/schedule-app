@@ -44,3 +44,8 @@ export interface LoginResponse {
 export interface ApiError {
     error: string;
 }
+
+export interface MainModel {
+    appointment: AppointmentSlot,
+    clinic: Clinic
+}

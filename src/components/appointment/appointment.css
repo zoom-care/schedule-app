@@ -1,0 +1,37 @@
+.img{
+    width: 80%;
+    border-radius: 50%;
+}
+
+.clinic-name{
+    font-size: 1.65rem;
+    font-weight: 500;
+}
+
+.provider-name{
+    font-size: 1.80rem;
+    color: #1ebee7;
+    font-weight: 500;
+    margin: 0;
+}
+
+p{
+    font: 1.35rem;
+    margin-bottom: 0.75rem;
+}
+
+.btn {
+    background-color: #2e424a;
+    color: white;
+    min-width: 7rem;
+}
+
+.appointment-container{
+    padding-top: 5rem;
+}
+
+.item-container{
+    margin-bottom: 0.5px;
+    border: 0.5px solid rgb(216, 216, 216);
+    padding: 1.25rem;
+}
