@@ -31,9 +31,12 @@ export interface ClinicsDto {
     clinics: Clinic[];
 }
 
-export interface Login {
+export interface Body {
     username: string;
     password: string;
+}
+export interface Login {
+    body: Body;
 }
 
 export interface LoginResponse {
