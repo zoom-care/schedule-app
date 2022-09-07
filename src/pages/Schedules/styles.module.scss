@@ -1,0 +1,48 @@
+.container {
+  background: #E8E8E8;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.topBar {
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  padding: 1rem 2rem;
+  box-shadow: 4px 4px 4px rgba(128, 128, 128, 0.3);
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  h1 { margin: 0; }
+}
+
+.main {
+  overflow: auto;
+  height: 100%;
+}
+
+.cardsContainer {
+  list-style: none;
+  padding: 1rem;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 1rem;
+
+  li {
+    width: 500px;
+  }
+}
+
+.messageContainer {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}

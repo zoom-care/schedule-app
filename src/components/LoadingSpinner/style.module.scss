@@ -1,0 +1,22 @@
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+
+.container {
+  position: relative;
+  background: red;
+  display: inline;
+
+  i {
+    font-size: 3em;
+    animation: 1.5s linear infinite spinner;
+    animation-play-state: inherit;
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+  }
+}

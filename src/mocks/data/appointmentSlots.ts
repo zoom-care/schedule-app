@@ -10,7 +10,7 @@ const mockAppointmentSlots = [
             language: "English, Spanish",
             phoneNumber: "+1 555-555-5555"
         },
-        startTime: "2020-02-08 20:30-07:00"
+        startTime: "2020-02-08T20:30-07:00"
     },
     {
         id: 2,
@@ -23,7 +23,7 @@ const mockAppointmentSlots = [
             language: "English",
             phoneNumber: "+1 555-555-5555"
         },
-        startTime: "2020-02-08 21:00-07:00"
+        startTime: "2020-02-08T21:00-07:00"
     },
     {
         id: 3,
@@ -36,7 +36,7 @@ const mockAppointmentSlots = [
             language: "English",
             phoneNumber: "+1 555-555-5555"
         },
-        startTime: "2020-02-10 10:00-07:00"
+        startTime: "2020-02-10T10:00-07:00"
     }
 ]
 

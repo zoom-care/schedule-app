@@ -3,7 +3,7 @@ import {ApiError, AppointmentsDto, Clinic, ClinicsDto, Login, LoginResponse} fro
 import {mockClinics} from "./data/clinics";
 import {mockAppointmentSlots} from "./data/appointmentSlots";
 
-const mockAuthToken = Math.random().toString(36).slice(2);
+const mockAuthToken = sessionStorage.getItem("authToken") ?? Math.random().toString(36).slice(2);
 
 export const handlers = [
     rest.get<any, any, AppointmentsDto | ApiError>("/api/appointments", ((req, res, context) => {
