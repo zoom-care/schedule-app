@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {rest} from 'msw'
 import {ApiError, AppointmentsDto, Clinic, ClinicsDto, Login, LoginResponse} from "../zoomcare-api";
 import {mockClinics} from "./data/clinics";

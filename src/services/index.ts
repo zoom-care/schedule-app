@@ -34,7 +34,7 @@ export async function login ({ username, password }: Login): Promise<LoginRespon
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ username, password })
-  });
+  })
 
   return await response.json()
 }

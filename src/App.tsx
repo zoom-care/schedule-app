@@ -7,7 +7,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import { Provider } from 'react-redux'
 import store from './state/store'
 
-function App () {
+function App (): React.ReactElement {
   return (
     <AuthProvider>
       <Provider store={store}>

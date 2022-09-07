@@ -28,11 +28,7 @@ export default function ScheduleCard ({
                 <h2 className={style.name}>{clinic.name}</h2>
                 <div>{clinic.address}</div>
                 <div>
-                  {
-                    clinic
-                      ? `${clinic.city}, ${clinic.state} ${clinic.zipcode}`
-                      : null
-                  }
+                  {`${clinic.city}, ${clinic.state} ${clinic.zipcode}`}
                 </div>
               </>
               )
@@ -45,7 +41,7 @@ export default function ScheduleCard ({
         </div>
         <div className={style.providerInfo}>
           <h3 className={style.name}>
-            {`${provider.name}, ${provider.credentials}`}
+            {`${provider.name} ${provider.credentials !== undefined ? `, ${provider.credentials}` : ''}`}
           </h3>
           <span>{provider.phoneNumber ?? 's/n'}</span>
           <ul className={style.buttonList}>

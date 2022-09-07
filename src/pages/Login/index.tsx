@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/Auth'
-import { login } from '../../services'
 import styles from './styles.module.scss'
 
 export default function Login (): React.ReactElement {
@@ -10,16 +9,14 @@ export default function Login (): React.ReactElement {
   const navigate = useNavigate()
   const auth = useAuth()
 
-  async function onSubmit (event: React.FormEvent) {
+  function onSubmit (event: React.FormEvent): void {
     event.preventDefault()
 
-    const response = await login({ username, password })
-
-    auth.login(response.username, response.authToken)
+    auth.login(username, password)
   }
 
   useEffect(() => {
-    if (auth.username && auth.authToken) {
+    if (![undefined, ''].includes(auth.authToken)) {
       navigate('/', { replace: true })
     }
   }, [auth, navigate])

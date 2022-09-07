@@ -1,3 +1,4 @@
+/* eslint-disable */
 const mockClinics = [
     {
         id: 1,

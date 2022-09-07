@@ -7,7 +7,7 @@ export default function ProtectedRoute (props: RouteProps): React.ReactElement |
   const location = useLocation()
 
   return (
-    username
+    username != null
       ? <Outlet />
       : <Navigate to={'/login'} state={{ from: location }} replace />
   )

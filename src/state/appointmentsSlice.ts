@@ -43,7 +43,7 @@ const slice = createSlice({
   }
 })
 
-const selectState = (state: RootState) => state.appointments
+const selectState = (state: RootState): AppointmentsState => state.appointments
 
 export const selectRetrieveStatus = createSelector(
   selectState,

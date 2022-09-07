@@ -1,5 +1,6 @@
 import React, { PropsWithChildren, useContext, useEffect, useState } from 'react'
 import { LoginResponse } from '../../zoomcare-api'
+import { login as loginService } from '../../services'
 
 const USERNAME = 'fe_username'
 const AUTHTOKEN = 'fe_authToken'
@@ -9,13 +10,13 @@ interface Auth extends Partial<LoginResponse> {
   logout: () => void
 }
 
-const noop = () => {}
+const noop = (): void => {}
 const AuthContext = React.createContext<Auth>({
   login: noop,
   logout: noop
 })
 
-export function useAuth () {
+export function useAuth (): Auth {
   return useContext(AuthContext)
 }
 
@@ -27,12 +28,14 @@ export function AuthProvider ({ children }: PropsWithChildren<React.ReactNode>):
   const [username, setUsername] = useState<string>(localStorage.getItem(USERNAME) ?? '')
   const [authToken, setAuthToken] = useState<string>(localStorage.getItem(AUTHTOKEN) ?? '')
 
-  function login (username: string, authToken: string) {
-    setUsername(username)
+  async function login (username: string, password: string): Promise<void> {
+    const { username: loggedUsername, authToken } = await loginService({ username, password })
+
+    setUsername(loggedUsername)
     setAuthToken(authToken)
   }
 
-  function logout () {
+  function logout (): void {
     setUsername('')
     setAuthToken('')
   }
@@ -43,6 +46,8 @@ export function AuthProvider ({ children }: PropsWithChildren<React.ReactNode>):
   }, [username, authToken])
 
   return (
+    // TODO: fix next line
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     <AuthContext.Provider value={{ username, authToken, login, logout }}>
       {children}
     </AuthContext.Provider>
