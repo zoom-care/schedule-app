@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import ScheduleCard from '../../components/ScheduleCard'
 import { useAuth } from '../../context/Auth'
@@ -11,22 +10,15 @@ import style from './styles.module.scss'
 
 export default function Schedules (): React.ReactElement {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const appointments = useSelector(selectGroupedAppointments)
   const clinics = useSelector(selectClinics)
   const status = useSelector(selectRetrieveStatus)
   const clinicStatus = useSelector(selectClinicRetrieveStatus)
-  const { logout, authToken } = useAuth()
+  const { logout } = useAuth()
 
   function handleLogout (): void {
     logout()
   }
-
-  useEffect(() => {
-    if (authToken === '' || authToken === undefined) {
-      navigate('/login', { replace: true })
-    }
-  }, [authToken])
 
   useEffect(() => {
     dispatch(getAppointments())
