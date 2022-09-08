@@ -4,8 +4,18 @@ import LoadingSpinner from '../../components/LoadingSpinner'
 import ScheduleCard from '../../components/ScheduleCard'
 import { useAuth } from '../../context/Auth'
 import RequestStatus from '../../models/RequestStatus.enum'
-import { getAppointments, selectGroupedAppointments, selectRetrieveStatus } from '../../state/appointmentsSlice'
-import { getClinics, selectClinics, selectRetrieveStatus as selectClinicRetrieveStatus } from '../../state/clinicSlice'
+import {
+  getAppointments,
+  resetRetrieveStatus as resetAppointmentsRetrieveStatus,
+  selectGroupedAppointments,
+  selectRetrieveStatus
+} from '../../state/appointmentsSlice'
+import {
+  getClinics,
+  resetRetrieveStatus as resetClinicRetrieveStatus,
+  selectClinics,
+  selectRetrieveStatus as selectClinicRetrieveStatus
+} from '../../state/clinicSlice'
 import style from './styles.module.scss'
 
 export default function Schedules (): React.ReactElement {
@@ -31,6 +41,13 @@ export default function Schedules (): React.ReactElement {
       dispatch(getClinics(Array.from(uniqueClinics)))
     }
   }, [status, appointments, dispatch])
+
+  useEffect(() => {
+    return () => {
+      dispatch(resetClinicRetrieveStatus())
+      dispatch(resetAppointmentsRetrieveStatus())
+    }
+  }, [])
 
   function renderList (): React.ReactNode {
     if ([status, clinicStatus].includes(RequestStatus.InProgress)) {
