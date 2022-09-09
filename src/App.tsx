@@ -1,24 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import './styles/main.scss';
+
+import Clinics from './components/Clinics';
+
 function App() {
-  return (
+
+  const [logged, setLogged] = useState(false);
+
+  const body = {
+    'username': 'lucho',
+    'password': '123'
+  }
+
+  useEffect(() =>{
+    fetch('/api/login', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify(body)
+    })
+    .then(response => setLogged(true))
+  }, [body, logged])
+
+
+
+  return logged? (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Clinics></Clinics>
+    </div>
+  ) : (
+    <div>
+      Need LogIn
     </div>
   );
 }
