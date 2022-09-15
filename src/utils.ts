@@ -7,3 +7,5 @@ export const readLocalToken = () => {
 
 export const isValidToken = (token: Token) =>
   token?.hasOwnProperty('authToken');
+
+export const formatTime = (date: string) => date.split(' ')[1];
