@@ -1,20 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Token } from '../types';
+import { isValidToken, readLocalToken } from '../utils';
+import ClinicList from './ClinicList';
+import Login from './Login';
 
 const LoginGuard = () => {
-  const [token, setToken] = useState({});
+  const [token, setToken] = useState<Token>({});
+
+  const updateToken = (token: Token) => {
+    localStorage.setItem('token', JSON.stringify(token));
+    setToken(token);
+  };
 
   useEffect(() => {
-    const localToken = localStorage.getItem('token');
-
+    const localToken = readLocalToken();
     if (localToken) {
-      setToken(JSON.parse(localToken));
+      setToken(localToken);
     }
   }, []);
 
-  return token.hasOwnProperty('authToken') ? (
-    <div>Logged in</div>
+  return isValidToken(token) ? (
+    <ClinicList updateToken={updateToken} />
   ) : (
-    <div>Not logged in</div>
+    <Login updateToken={updateToken} />
   );
 };
 
