@@ -10,10 +10,10 @@ import {
 import { ChangeEvent, useState } from 'react';
 
 interface LoginProps {
-  setToken: (token: { username?: string; password?: string }) => any;
+  updateToken: (token: { username?: string; password?: string }) => any;
 }
 
-const Login = ({ setToken }: LoginProps) => {
+const Login = ({ updateToken }: LoginProps) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -35,8 +35,7 @@ const Login = ({ setToken }: LoginProps) => {
       });
 
       const token = await res.json();
-      console.log('Got token:', token);
-      setToken(token);
+      updateToken(token);
     } catch (error) {
       console.error(error);
     }
@@ -57,6 +56,7 @@ const Login = ({ setToken }: LoginProps) => {
               label="Password"
               onChange={handleChangePassword}
               value={password}
+              inputProps={{ type: 'password' }}
             />
             <Button color="primary" variant="contained" onClick={handleClick}>
               Login
