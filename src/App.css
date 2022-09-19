@@ -1,38 +1,84 @@
-.App {
-  text-align: center;
+
+
+/* ==== APPOINTMENTS STYLINGS ===== */
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.errorContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.emptyAppointments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.appointment {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.appointment p, .appointment h3 {
+    margin: 5px 0;
+    color: #5c5c5c;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.appointment .title {
+    font-size: 22px;
 }
 
-.App-link {
-  color: #61dafb;
+.appointment .title.textPrimary {
+    color: rgb(13,202,240);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.slot {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 24px;
+}
+
+.slot .provider-icon {
+    margin-right: 16px;
+    background-color: #f1f0f0de;
+    border-radius: 100%;
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slot .bookingBtn {
+    background-color: #373c3e;
+    color: #fff;
+    border: none;
+    margin: 5px;
+    padding: 8px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.slot .bookingBtn.hidden {
+    display: none;
+}
+.slot .bookingBtn.show {
+    display: inline-block;
+}
+
+.slot button.toggler {
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+    margin-top: 10px;
+    color: rgb(100 107 109);
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
 }
