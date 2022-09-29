@@ -36,3 +36,55 @@
     transform: rotate(360deg);
   }
 }
+h4 {
+  margin: 0;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  row-gap: 10px;
+  margin: 200px auto;
+}
+
+.login-form input {
+  height: 20px;
+}
+
+.clinic-board {
+  height: 100%;
+  margin: 20px;
+  text-align: left;
+  border: 1px solid #F0F0F0;
+  border-bottom: none;
+}
+.clinic-item {
+  border-bottom: 1px solid #F0F0F0;
+  padding: 20px;
+  color: #2E424A;
+}
+.clinic-provider {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.clinic-item-image {
+  border-radius: 50%;
+  width: 80px;
+  height: 100%;
+  margin-right: 10px;
+}
+.clinic-time {
+  background: #2E424E;
+  border-radius: 3px;
+  padding: 8px 12px;
+  width: fit-content;
+  color: white;
+  margin-top: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.clinic-title {
+  margin-bottom: 5px;
+  color: #1EBEE7;
+}

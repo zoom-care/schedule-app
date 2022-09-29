@@ -6,6 +6,14 @@ const mockClinics = [
         city: "Portland",
         state: "Oregon",
         zipcode: "97209"
+    },
+    {
+        id: 2,
+        name: "Clinic B",
+        address: "456 NE MLK Blvd",
+        city: "Portland",
+        state: "Oregon",
+        zipcode: "97654"
     }
 ]
 
