@@ -1,12 +1,20 @@
 import { useState, useEffect } from "react";
 import { styled } from "@mui/system";
-import { Box } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import axios from "axios";
-import {LoginResponse, Login} from './zoomcare-api';
+import AppointmentCard from "./components/AppointmentCard";
+import {LoginResponse, Login, AppointmentsDto, AppointmentSlot} from './zoomcare-api';
+
+const CardListGrid = styled("div")({
+  display: "grid",
+  background: "#eeeeee",
+  padding: 30,
+});
 
 function App() {
 
   const [authToken, setAuthToken] = useState('');
+  const [appointmentSlots, setAppointmentSlots] = useState<AppointmentSlot[]>([]);
 
   useEffect(() => {
     getAuthToken();
@@ -22,13 +30,38 @@ function App() {
     setAuthToken(result.authToken);
   }
 
+  useEffect(() => {
+    if (authToken) {
+      getAppointments();
+    }
+  }, [authToken]);
+
+  const getAppointments = async () => {
+    let result: AppointmentsDto = (await axios.get<AppointmentsDto>('/api/appointments', {
+      headers: {Authorization: authToken}
+    })).data;
+    setAppointmentSlots(result.appointmentSlots);
+  }
+
   return (
     <Box
       sx={{
         margin: "2em",
       }}
     >
- 
+      <CardListGrid>
+        {
+          appointmentSlots.map((appointmentSlot, index) => {
+            return (
+              <AppointmentCard
+                appointmentSlot={appointmentSlot}
+                authToken={authToken}
+                key={index}
+              />
+            );
+          })
+        }
+      </CardListGrid>
     </Box>
   );
 }
