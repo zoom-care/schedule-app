@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import { styled } from "@mui/system";
+import { Box } from "@mui/material";
+import axios from "axios";
+import {LoginResponse, Login} from './zoomcare-api';
 
 function App() {
+
+  const [authToken, setAuthToken] = useState('');
+
+  useEffect(() => {
+    getAuthToken();
+  }, [])
+
+  const getAuthToken = async () => {
+    const requestBody: Login = {
+      username: 'username',
+      password: 'password'
+    };
+
+    let result: LoginResponse = (await axios.post<LoginResponse>('/api/login', requestBody)).data;
+    setAuthToken(result.authToken);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box
+      sx={{
+        margin: "2em",
+      }}
+    >
+ 
+    </Box>
   );
 }
 
