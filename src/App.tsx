@@ -54,6 +54,7 @@ function App() {
           appointmentSlots.map((appointmentSlot, index) => {
             return (
               <AppointmentCard
+                appointmentSlots={appointmentSlots}
                 appointmentSlot={appointmentSlot}
                 authToken={authToken}
                 key={index}
