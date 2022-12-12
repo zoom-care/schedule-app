@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Card, Typography, Button } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Card, Typography, Button, useTheme, useMediaQuery } from "@mui/material";
 import { styled } from "@mui/system";
 import { AppointmentSlot, Clinic } from "../zoomcare-api";
 import axios from "axios";
@@ -9,7 +9,6 @@ const CustomCard = styled(Card)({
   maxWidth: "100%",
   width: "100%",
   position: "relative",
-  height: 260,
   border: '1px solid grey',
   borderRadius: 'unset'
 });
@@ -22,10 +21,11 @@ const ClinicContent = styled("div")(({
   flexDirection: "column",
 }));
 
-const ProviderContent = styled("div")(({
+const ProviderContent = styled("div")(({matches}: {matches: boolean}) => ({
   paddingBlock: "0.75rem",
   paddingInline: "0.5rem",
-  display: "flex",
+  display: matches ? "grid" : "flex",
+  justifyContent: "flex-start",
   gap: "0.25em",
   flexDirection: "row",
   alignItems: 'center'
@@ -45,10 +45,10 @@ const ProviderDetail = styled("div")(({
   flexDirection: "column",
 }));
 
-const TimeButtonList = styled("div")(({
+const TimeButtonList = styled("div")(({matches}: {matches: boolean}) => ({
   paddingBlock: "0.75rem",
   paddingInline: "0.5rem",
-  display: "flex",
+  display: matches ? "grid" : "flex",
   gap: "0.25em",
   flexDirection: "row",
   alignItems: 'center'
@@ -58,6 +58,9 @@ function AppointmentCard({appointmentSlot, authToken, appointmentSlots}: {appoin
   const {
     id, startTime, clinicId, durationInMinutes, provider
   } = appointmentSlot;
+
+  const theme = useTheme();
+  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
 
   const [clinicData, setClinicData] = useState<Clinic>({
     id: 0,
@@ -115,28 +118,28 @@ function AppointmentCard({appointmentSlot, authToken, appointmentSlots}: {appoin
           {clinicData.city}, {clinicData.state} {clinicData.zipcode}
         </Typography>
       </ClinicContent>
-      <ProviderContent>
+      <ProviderContent matches={matchesSM}>
         <ProviderImage src="/provider.png"/>
         <ProviderDetail>
-        <Typography variant="h6" component="h6" align="left" color='blue'>
-          {provider.name}, {provider.credentials}
-        </Typography>
-        <Typography variant="body1" component="h5" align="left">
-          {provider.phoneNumber}
-        </Typography>
-        <TimeButtonList>
-        {
-          appointmentSlots.map((slot, index) => {
-            if (slot.provider.id === provider.id) {
-              return (
-                <Button key={index} variant='contained' style={{background: 'cadetblue'}} onClick={() => handleClick(convertTimeFormat(slot.startTime))}>
-                  {convertTimeFormat(slot.startTime)}
-                </Button>
-              )
-            }
-          })
-        }
-        </TimeButtonList>
+          <Typography variant="h6" component="h6" align="left" color='blue'>
+            {provider.name}, {provider.credentials}
+          </Typography>
+          <Typography variant="body1" component="h5" align="left">
+            {provider.phoneNumber}
+          </Typography>
+          <TimeButtonList matches={matchesSM}>
+          {
+            appointmentSlots.map((slot, index) => {
+              if (slot.provider.id === provider.id) {
+                return (
+                  <Button key={index} variant='contained' style={{background: 'cadetblue'}} onClick={() => handleClick(convertTimeFormat(slot.startTime))}>
+                    {convertTimeFormat(slot.startTime)}
+                  </Button>
+                )
+              }
+            })
+          }
+          </TimeButtonList>
         </ProviderDetail>
       </ProviderContent>
     </CustomCard>
