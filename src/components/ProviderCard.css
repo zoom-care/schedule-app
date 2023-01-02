@@ -1,0 +1,64 @@
+body {
+    margin: 5px;
+}
+
+.card {
+    width: 800px;
+    height: 220px;
+    border:  1px #aaa solid;
+    margin: 5px 5px;
+    padding: 20px;
+    font: 1em helvetica
+}
+
+h2, p {
+    margin: 0px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+.dr-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+.dr-title {
+    color: rgb(70, 170, 255);
+    font: bold 1.1em helvetica;
+}
+
+.clinic-name {
+    font: bold 1.1em helvetica;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.card-bottom-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+}
+
+.time-buttons {
+    display: flex;
+    align-items: flex-start;
+}
+
+button {
+    color: white;
+    font: bold 1em helvetica;
+    background-color: #222;
+    margin: 5px 10px 0 0;
+    padding: 5px;
+    border-radius: 3px;
+    width: 80px;
+}
