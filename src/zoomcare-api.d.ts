@@ -10,6 +10,11 @@ export interface AppointmentSlot {
     provider: Provider;
 }
 
+export interface AppointmentData {
+    appointment:  AppointmentSlot;
+    clinic:  Clinic;
+}
+
 export interface Clinic {
     id: number;
     name: string;
