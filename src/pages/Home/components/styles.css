@@ -1,0 +1,80 @@
+.container {
+    position: relative;
+}
+
+.appointment {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.appointment p,
+.appointment h3 {
+    margin: 5px 0;
+    color: #5c5c5c;
+}
+
+.appointment .title {
+    font-size: 22px;
+}
+
+.appointment .title.textPrimary {
+    color: rgb(13, 202, 240);
+}
+
+.slot {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 24px;
+}
+
+.slot .provider-icon {
+    margin-right: 16px;
+    background-color: #f1f0f0de;
+    border-radius: 100%;
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bookingBtn {
+    position: relative;
+    background-color: #373c3e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    margin: 5px;
+    padding: 8px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.bookingBtn:after {
+    content: "";
+    background: #c8ccc8;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -24px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.bookingBtn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
