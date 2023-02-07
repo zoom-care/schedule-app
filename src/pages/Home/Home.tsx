@@ -6,7 +6,7 @@ import { getAppointment } from "../../services/apis";
 import { ApiError, AppointmentsDto } from "../../zoomcare-api";
 import AppointmentItem from "./components/AppointmentItem";
 
-import "../styles.css";
+import "./styles.css";
 
 const Home = () => {
   const { token } = useAuthContext();

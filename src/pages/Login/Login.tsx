@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import { Input, Button, Error } from "../components";
-import { RouteList } from "../constants/Routes";
-import { userLogin } from "../services/apis";
-import { ApiError, LoginResponse } from "../zoomcare-api";
-import { useAuthContext } from "../context/context";
+import { Input, Button, Error } from "../../components";
+import { RouteList } from "../../constants/Routes";
+import { userLogin } from "../../services/apis";
+import { ApiError, LoginResponse } from "../../zoomcare-api";
+import { useAuthContext } from "../../context/context";
 
 import "./styles.css";
 
