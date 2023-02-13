@@ -3,11 +3,11 @@ import {ApiError, AppointmentsDto, Clinic, ClinicsDto, Login, LoginResponse} fro
 import {mockClinics} from "./data/clinics";
 import {mockAppointmentSlots} from "./data/appointmentSlots";
 
-const mockAuthToken = Math.random().toString(36).slice(2);
+const mockAuthToken: string | undefined = localStorage.getItem('token')?.split(' ')[1];
 
 export const handlers = [
     rest.get<any, any, AppointmentsDto | ApiError>("/api/appointments", ((req, res, context) => {
-        if (!req.headers.get('Authorization')?.includes(mockAuthToken)) {
+        if (!req.headers.get('Authorization')?.includes(mockAuthToken!)) {
             return res(context.status(403), context.json({
                 error: "Not Authorized"
             }))
@@ -19,7 +19,7 @@ export const handlers = [
     })),
 
     rest.get<any, any, ClinicsDto | ApiError>('/api/clinics', ((req, res, context) => {
-        if (!req.headers.get('Authorization')?.includes(mockAuthToken)) {
+        if (!req.headers.get('Authorization')?.includes(mockAuthToken!)) {
             return res(context.status(403), context.json({
                 error: "Not Authorized"
             }))
@@ -31,7 +31,7 @@ export const handlers = [
     })),
 
     rest.get<any, { clinicId: string; }, Clinic | ApiError>('/api/clinics/:clinicId', ((req, res, context) => {
-        if (!req.headers.get('Authorization')?.includes(mockAuthToken)) {
+        if (!req.headers.get('Authorization')?.includes(mockAuthToken!)) {
             return res(context.status(403), context.json({
                 error: "Not Authorized"
             }))
@@ -54,13 +54,13 @@ export const handlers = [
         const { username, password } = req.body
         if (!!username && !!password) {
             sessionStorage.setItem("username", username)
-            sessionStorage.setItem("authToken", mockAuthToken)
+            sessionStorage.setItem("authToken", mockAuthToken!)
             return res(
                 // Respond with a 200 status code
                 ctx.status(200),
                 ctx.json({
                     username: username,
-                    authToken: mockAuthToken
+                    authToken: mockAuthToken!
                 })
             )
         } else {

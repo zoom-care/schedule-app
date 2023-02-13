@@ -8,7 +8,7 @@ const mockAppointmentSlots = [
             name: "Provider A",
             credentials: "P.A.",
             language: "English, Spanish",
-            phoneNumber: "+1 555-555-5555"
+            phoneNumber: "+1 906-661-1307"
         },
         startTime: "2020-02-08 20:30-07:00"
     },
@@ -21,7 +21,7 @@ const mockAppointmentSlots = [
             name: "Provider B",
             credentials: "M.D.",
             language: "English",
-            phoneNumber: "+1 555-555-5555"
+            phoneNumber: "+1 901-729-9589"
         },
         startTime: "2020-02-08 21:00-07:00"
     },
