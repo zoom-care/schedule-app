@@ -44,3 +44,19 @@ export interface LoginResponse {
 export interface ApiError {
     error: string;
 }
+
+export interface Slot {
+    clinic: Clinic;
+    appointmentSlots: AppointmentSlot[];
+    provider: Provider;
+}
+
+export interface ClinicReq {
+    id: number;
+    name: string;
+    address: string;
+    city: string;
+    state: string;
+    zipcode: string;
+    error?: undefined;
+}

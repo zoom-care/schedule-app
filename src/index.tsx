@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {worker} from "./mocks/browser";
+import { BrowserRouter as Router } from "react-router-dom";
 
 worker.start({
     onUnhandledRequest: "bypass"
@@ -11,9 +12,9 @@ worker.start({
 .then(() => {
 
     ReactDOM.render(
-        <React.StrictMode>
+        <Router>
             <App/>
-        </React.StrictMode>,
+        </Router>,
         document.getElementById('root')
     );
 
