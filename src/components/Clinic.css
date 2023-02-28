@@ -1,0 +1,12 @@
+.Clinic-item {
+  text-align: left;
+  width: 100%;
+  padding: 10px;
+  border-bottom: solid 1px;
+  border-color: black;
+}
+
+.Clinic-name {
+  font-size: 20px;
+  font-weight: bold;
+}

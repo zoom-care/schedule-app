@@ -1,0 +1,8 @@
+.AppointmentSlot-button {
+  color:white;
+  background-color: rgb(12, 12, 69);
+  font-weight: bold;
+  border: solid 1px;
+  border-radius: 4px;
+  padding: 4px;
+}

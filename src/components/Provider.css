@@ -1,0 +1,17 @@
+.Provider-item {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.Provider-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  padding-right: 10px;
+}
+
+.Provider-name-title {
+  color: rgb(61, 206, 255);
+  font-weight: bold;
+}
