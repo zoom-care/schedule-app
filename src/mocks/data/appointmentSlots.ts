@@ -6,11 +6,11 @@ const mockAppointmentSlots = [
         provider: {
             id: 1,
             name: "Provider A",
-            credentials: "P.A.",
-            language: "English, Spanish",
-            phoneNumber: "+1 555-555-5555"
+            credentials: "MD",
+            language: "English",
+            phoneNumber: "(503) 123-4567"
         },
-        startTime: "2020-02-08 20:30-07:00"
+        startTime: "2020-02-08 16:15"
     },
     {
         id: 2,
@@ -19,22 +19,22 @@ const mockAppointmentSlots = [
         provider: {
             id: 2,
             name: "Provider B",
-            credentials: "M.D.",
-            language: "English",
-            phoneNumber: "+1 555-555-5555"
+            credentials: "PA-C",
+            language: "English, Spanish",
+            phoneNumber: "(123) 456-7890"
         },
-        startTime: "2020-02-08 21:00-07:00"
+        startTime: "2020-02-08 04:45-16:45"
     },
     {
         id: 3,
-        clinicId: 2, // does not exist
+        clinicId: 2,
         durationInMinutes: 30,
         provider: {
             id: 2,
             name: "Provider B",
-            credentials: "M.D.",
+            credentials: "MD",
             language: "English",
-            phoneNumber: "+1 555-555-5555"
+            phoneNumber: "(430) 345-6789"
         },
         startTime: "2020-02-10 10:00-07:00"
     }
