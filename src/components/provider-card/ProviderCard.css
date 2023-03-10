@@ -1,0 +1,33 @@
+.provider {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.provider-avatar {
+  border-radius: 50%;
+  height: 90px;
+  width: 90px;
+}
+
+.provider-appointment {
+  font-weight: 700;
+  background-color: #2e424a;
+  color: #fcfcfc;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+}
+
+.provider-slots {
+  display: flex;
+  margin-top: auto;
+  gap: 8px;
+  padding-top: 0.5rem;
+}
+
+.provider-name {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  color: #21c1e8;
+  font-weight: 700;
+}

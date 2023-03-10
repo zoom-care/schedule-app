@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import ClinicList from './components/clinic-list/ClinicList';
+import { createContext, useEffect, useState, } from 'react';
+import { login } from './services/LoginService';
+import Error from './components/error/Error';
+
 import './App.css';
 
+export const LoginContext = createContext<string>('')
+
 function App() {
+  const [authToken, setAuthToken] = useState<string>('')
+  const [error, setError] = useState<boolean>(false)
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const auth = await login({ username: 'user', password: 'pass' })
+        setAuthToken(auth?.authToken || '')
+      } catch {
+        setError(true)
+      }
+    })()
+  }, [])
+
+  if (error) {
+    return <Error />
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <LoginContext.Provider value={authToken}>
+        {authToken && <ClinicList />}
+      </LoginContext.Provider>
     </div>
   );
 }
