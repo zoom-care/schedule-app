@@ -1,43 +1,134 @@
 const mockAppointmentSlots = [
-    {
-        id: 1,
-        clinicId: 1,
-        durationInMinutes: 30,
-        provider: {
-            id: 1,
-            name: "Provider A",
-            credentials: "P.A.",
-            language: "English, Spanish",
-            phoneNumber: "+1 555-555-5555"
-        },
-        startTime: "2020-02-08 20:30-07:00"
+  {
+    id: 1,
+    clinicId: 1,
+    durationInMinutes: 30,
+    provider: {
+      id: 1,
+      name: 'Provider A',
+      credentials: 'P.A.',
+      language: 'English, Spanish',
+      phoneNumber: '+1 555-555-5555',
     },
-    {
-        id: 2,
-        clinicId: 1,
-        durationInMinutes: 15,
-        provider: {
-            id: 2,
-            name: "Provider B",
-            credentials: "M.D.",
-            language: "English",
-            phoneNumber: "+1 555-555-5555"
-        },
-        startTime: "2020-02-08 21:00-07:00"
+    startTime: '2020-02-08 20:30-07:00',
+  },
+  {
+    id: 2,
+    clinicId: 2,
+    durationInMinutes: 45,
+    provider: {
+      id: 2,
+      name: 'Provider B',
+      credentials: 'M.D.',
+      language: 'English',
+      phoneNumber: '+1 555-555-5555',
     },
-    {
-        id: 3,
-        clinicId: 2, // does not exist
-        durationInMinutes: 30,
-        provider: {
-            id: 2,
-            name: "Provider B",
-            credentials: "M.D.",
-            language: "English",
-            phoneNumber: "+1 555-555-5555"
-        },
-        startTime: "2020-02-10 10:00-07:00"
-    }
-]
+    startTime: '2020-03-15 09:00-07:00',
+  },
+  {
+    id: 3,
+    clinicId: 1,
+    durationInMinutes: 60,
+    provider: {
+      id: 1,
+      name: 'Provider A',
+      credentials: 'P.A.',
+      language: 'English, Spanish',
+      phoneNumber: '+1 555-555-5555',
+    },
+    startTime: '2020-04-20 13:30-07:00',
+  },
+  {
+    id: 4,
+    clinicId: 3,
+    durationInMinutes: 45,
+    provider: {
+      id: 3,
+      name: 'Provider C',
+      credentials: 'M.C.',
+      language: 'Spanish',
+      phoneNumber: '+1 555-555-1234',
+    },
+    startTime: '2020-05-08 08:15-07:00',
+  },
+  {
+    id: 5,
+    clinicId: 2,
+    durationInMinutes: 30,
+    provider: {
+      id: 2,
+      name: 'Provider B',
+      credentials: 'M.D.',
+      language: 'English',
+      phoneNumber: '+1 555-555-5555',
+    },
+    startTime: '2020-06-01 16:00-07:00',
+  },
+  {
+    id: 6,
+    clinicId: 1,
+    durationInMinutes: 60,
+    provider: {
+      id: 1,
+      name: 'Provider A',
+      credentials: 'P.A.',
+      language: 'English, Spanish',
+      phoneNumber: '+1 555-555-5555',
+    },
+    startTime: '2020-07-10 11:45-07:00',
+  },
+  {
+    id: 7,
+    clinicId: 1,
+    durationInMinutes: 30,
+    provider: {
+      id: 3,
+      name: 'Provider C',
+      credentials: 'M.C.',
+      language: 'Spanish',
+      phoneNumber: '+1 555-555-1234',
+    },
+    startTime: '2020-08-21 14:30-07:00',
+  },
+  {
+    id: 8,
+    clinicId: 3,
+    durationInMinutes: 30,
+    provider: {
+      id: 3,
+      name: 'Provider C',
+      credentials: 'M.C.',
+      language: 'Spanish',
+      phoneNumber: '+1 555-555-1234',
+    },
+    startTime: '2020-02-08 20:30-07:00',
+  },
+  {
+    id: 9,
+    clinicId: 2,
+    durationInMinutes: 15,
+    provider: {
+      id: 1,
+      name: 'Provider A',
+      credentials: 'P.A.',
+      language: 'English, Spanish',
+      phoneNumber: '+1 555-555-5555',
+    },
+    startTime: '2020-02-08 21:00-07:00',
+  },
+  {
+    id: 10,
+    clinicId: 4,
+    durationInMinutes: 30,
+    provider: {
+      id: 2,
+      name: 'Provider B',
+      credentials: 'M.D.',
+      language: 'English',
+      phoneNumber: '+1 555-555-5555',
+    },
+    startTime: '2020-02-10 10:00-07:00',
+  },
+];
 
-export { mockAppointmentSlots }
+export { mockAppointmentSlots };
