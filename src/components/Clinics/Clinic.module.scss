@@ -1,0 +1,30 @@
+.clinic-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title {
+    position: relative;
+    margin: 40px 0;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #080808;
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+  }
+
+  .loading {
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;
+    line-height: 16px;
+    font-size: 16px;
+    color: #445860;
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+  }
+}
