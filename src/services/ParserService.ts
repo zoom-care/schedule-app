@@ -17,5 +17,5 @@ export function parseDateStringToLocaleTime(dateString: string): string {
 }
 
 export function parseIntPhoneToLocalePhone(phone: string): string {
-  return phone.replace(/^(\+\d{1, 3}) (\d{3})-(\d{3})-(\d{4})$/, "($2) $3-$4");
+  return phone.replace(/^(\+\d{1,3}) (\d{3})-(\d{3})-(\d{4})$/, "($2) $3-$4");
 }
