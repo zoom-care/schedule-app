@@ -51,7 +51,7 @@ export const handlers = [
 
     // consumes and produces "application/json" only
     rest.post<Login, any, LoginResponse>('/api/login', (req, res, ctx) => {
-        const { username, password } = req.body
+        const { username, password } = JSON.parse(String(req.body))
         if (!!username && !!password) {
             sessionStorage.setItem("username", username)
             sessionStorage.setItem("authToken", mockAuthToken)
