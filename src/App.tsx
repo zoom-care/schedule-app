@@ -3,6 +3,7 @@ import './App.css';
 import { login } from './services/login';
 import { LoginResponse } from './zoomcare-api';
 import { ClinicList } from './components/ClinicList/ClinicList';
+import { UserContext } from './context/UserContext';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -27,7 +28,9 @@ function App() {
 
   return (
     <div className="App">
-      <ClinicList />
+      <UserContext.Provider value={user}>
+        <ClinicList />
+      </UserContext.Provider>
     </div>
   );
 }

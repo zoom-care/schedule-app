@@ -1,6 +1,6 @@
 import { AppointmentsDto } from "../zoomcare-api";
+import { fetchData } from "./api";
 
-export async function getAppointments(): Promise<AppointmentsDto> {
-    const response = await fetch('/api/appointments', { method: 'GET', headers: {'Authorization': sessionStorage.getItem('authToken') as string } })
-    return await response.json();
+export async function getAppointments(token: string): Promise<AppointmentsDto> {
+    return fetchData('/api/appointments', token);  
 }  
