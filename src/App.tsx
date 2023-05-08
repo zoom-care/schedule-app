@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { login } from './services/login';
+import { LoginResponse } from './zoomcare-api';
+import { ClinicList } from './components/ClinicList/ClinicList';
 
 function App() {
+  const [loading, setLoading] = useState<boolean>(true);
+  const [user, setUser] = useState<LoginResponse>();
+
+  useEffect(() => {
+    const fetchLoginData = async function () {
+      const data = await login('juan', 'juan');
+      setUser(data);
+      setLoading(false);
+    };
+    fetchLoginData();
+  }, []);
+
+  if (loading) {
+    return <p>Loading User</p>;
+  }
+
+  if (!user) {
+    return <p>User not logged</p>;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ClinicList />
     </div>
   );
 }
 
 export default App;
+

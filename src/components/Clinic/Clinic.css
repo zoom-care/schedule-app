@@ -1,0 +1,18 @@
+.clinic-item {
+    border: 1px solid grey;
+    padding: 5px;
+}
+
+.clinic-name {
+    font-size: 1.3em;
+    color: gray;
+    margin: 0.4em 0;
+}
+
+.clinic-address {
+    margin: 0.3em;
+}
+
+.clinic-providers {
+    margin: 1.5em 2em;
+}
