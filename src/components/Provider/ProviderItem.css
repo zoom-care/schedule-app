@@ -1,0 +1,35 @@
+.provider-item {
+    display: flex;
+    margin: 1em 0;
+}
+
+.provider-img {
+    width: 8em;
+    border-radius: 50%;
+}
+
+.provider-details {
+    margin: 0 1em;
+}
+
+.provider-name {
+    color:#00b7e0;
+    font-size: 1.2em;
+    margin: 0.4em;
+}
+
+.provider-number {
+    margin: 0.4em;
+    color: #282f40;
+}
+
+.app-slot {
+    background-color: #273a40;
+    font-weight: bold;
+    color: white;
+    font-size: 1em;
+    padding: 0.8em;
+    border: none;
+    border-radius: 4px;
+    margin: 0 0.5em;
+}
