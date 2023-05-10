@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect } from "react";
+import "./App.css";
+import useAuthViewModel from "./Presentation/Auth/AuthViewModel";
+import { AppointmentsView } from "./Presentation/Appointments/AppointmentsView";
 
 function App() {
+  const { data: AuthToken, getAuthToken } = useAuthViewModel();
+
+  useEffect(() => {
+    getAuthToken();
+  }, []);
+
+  const renderClinicsView = AuthToken?.authToken ? (
+    <AppointmentsView />
+  ) : undefined;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="App-header">{renderClinicsView}</header>
     </div>
   );
 }
