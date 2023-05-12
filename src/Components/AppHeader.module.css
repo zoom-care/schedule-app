@@ -1,0 +1,6 @@
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    width: -webkit-fill-available;
+    padding: 0 1em;
+}
