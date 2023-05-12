@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Styles from './App.module.css'
+import { AppHeader } from './Components/AppHeader'
+import { AppointmentsList } from './Components/AppointmentsList'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+    <div className={Styles.content}>
+      <AppHeader />
+      <main>
+        <AppointmentsList />
+      </main>
+      <footer>
+        Made by{' '}
         <a
-          className="App-link"
-          href="https://reactjs.org"
+          href="https://www.linkedin.com/in/galiprandi/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Germán Aliprandi
         </a>
-      </header>
+      </footer>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

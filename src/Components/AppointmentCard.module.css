@@ -1,0 +1,38 @@
+.card {
+    border: 1px solid #bbb9b9;
+    margin: 1em;
+    padding: 1.3em;
+    color: var(--dark-color);
+    min-width: 500px;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+header h3 {
+    color: var(--dark-color);
+}
+
+main {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+h3 {
+    color: var(--light-color);
+    margin: 0 0 4px 0;
+}
+
+img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.hours {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
