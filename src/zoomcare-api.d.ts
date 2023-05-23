@@ -27,6 +27,11 @@ export interface Provider {
     phoneNumber?: string;
 }
 
+export interface ClinicAppointment extends AppointmentSlot {
+    clinic: Clinic;
+    availableTimes: string[]
+}
+
 export interface ClinicsDto {
     clinics: Clinic[];
 }
