@@ -1,0 +1,24 @@
+.appointment {
+  border-bottom: 1px solid #ccc;
+  padding: 15px;
+  width: 800px;
+}
+
+.appointment:last-child {
+  border-bottom: 0;
+}
+
+.provider-starttimes {
+  display: flex;
+  align-items: center;
+}
+
+.provider-starttimes img {
+  height: 90px;
+  border-radius: 50%;
+}
+
+.provider-starttimes .info {
+  margin-left: 10px;
+  padding: 10px;
+}

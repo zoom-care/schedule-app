@@ -1,0 +1,18 @@
+.slots-panel button {
+  margin-right: 5px;
+  color: #fff;
+  background-color: #293a41;
+  cursor: pointer;
+  width: 80px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.slots-panel button:hover {
+  background-color: #666;
+}
+
+.slots-panel button:last-child {
+  margin-right: 0;
+}
