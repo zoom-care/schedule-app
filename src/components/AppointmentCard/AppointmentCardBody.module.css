@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.providerImgContainer {
+  margin-right: 12px;
+}
+
+img {
+  border-radius: 50%;
+}
+
+.providerTitle {
+  font-weight: bold;
+  color: #04d4f0;
+}
+
+.buttonStyle {
+  margin-top: 4px;
+  background-color: #071330;
+  border: 1px solid #071330;
+  font-weight: 600;
+  color: whitesmoke;
+  padding: 4px 16px;
+}
