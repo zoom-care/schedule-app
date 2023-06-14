@@ -55,8 +55,17 @@ p {
   font-weight: bolder;
   background-color: #3f5760;
   border-radius: 3px;
-  padding: 10px 20px;
+  padding: 10px 30px;
+  margin: 5px;
   transition: background-color 0.3s ease-in-out;
+}
+.clinic__provider__buttons{
+  display: flex;
+  margin: 0;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .clinic__provider__btn:hover {
