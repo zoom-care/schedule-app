@@ -10,15 +10,6 @@ const Appointments: FC = () => {
 
   const [appointments, setAppointments] = useState<AppointmentSlot[]>([]);
 
-  //   const options = { method: "GET", headers: { "Authorization": ctx.token } };
-  //   console.log(options);
-  //   const {
-  //     loading,
-  //     error,
-  //     data = [],
-  //   } = useFetch("/api/appointments", options, []);
-
-  //   console.log(data);
   const { get, response, loading, error } = useFetch("api", {
     headers: { Authorization: ctx.token },
   });
@@ -29,7 +20,7 @@ const Appointments: FC = () => {
 
   async function loadAppointments() {
     const { appointmentSlots } = await get(`/appointments`);
-    console.log('appointments: ', appointmentSlots);
+    console.log("appointments: ", appointmentSlots);
     if (response.ok) setAppointments(appointmentSlots);
   }
   return (

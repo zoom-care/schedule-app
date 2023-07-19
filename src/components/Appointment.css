@@ -1,13 +1,13 @@
 .appointment-container {
-    border: 1px solid #A1A1A1;
-    border-bottom: none;
-    padding: 20px 24px;
-    cursor: pointer;
+  border: 1px solid #a1a1a1;
+  border-bottom: none;
+  padding: 20px 24px;
+  cursor: pointer;
 }
-.appointment-container:nth-last-child(-n+1) {
-    border-bottom: 1px solid #A1A1A1 !important; 
+.appointment-container:nth-last-child(-n + 1) {
+  border-bottom: 1px solid #a1a1a1 !important;
 }
 .appointment-container:hover .container {
-    transform: translate(-20px, -40px) rotate(-15deg) scale(1.1);
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  transform: translate(-20px, -40px) rotate(-15deg) scale(1.1);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }

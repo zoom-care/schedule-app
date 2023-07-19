@@ -36,9 +36,11 @@ const ClinicComponent: FC<{ clinicId: number }> = ({ clinicId }) => {
       {loading && "Loading..."}
       {clinic.id && (
         <div className="clinic-container">
-          <div><h1>{clinic.name}</h1></div>
+          <div>
+            <h1>{clinic.name}</h1>
+          </div>
           <div className="address">{clinic.address}</div>
-          <div className="address"> 
+          <div className="address">
             {clinic.city}, {clinic.state} {clinic.zipcode}
           </div>
         </div>
