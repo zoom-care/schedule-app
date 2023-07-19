@@ -1,0 +1,16 @@
+.provider-container {
+  display: flex;
+}
+.provider-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 16px;
+}
+.provider-info h1 {
+  color: #1cb6e3;
+}
+.provider-info p {
+  font-size: 12px;
+  margin-top: 0;
+}
