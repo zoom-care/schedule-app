@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
+import { LoginResponse } from './zoomcare-api';
+import { loginAuth } from './services/api';
+import { AppContext } from './context/appContext';
+import ClinicDetails from './components/clinicDetails';
 
 function App() {
+
+  const [login, setLogin] = useState<LoginResponse>();
+
+  useEffect(() => {
+    const setLoginData = async function () {
+      const data = await loginAuth('test', 'test');
+      setLogin(data);
+    };
+    setLoginData();
+  }, []);
+
+  
+
+  if (!login) {
+    return <p>User not logged</p>;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider value={login}>
+      <ClinicDetails />
+    </AppContext.Provider>
   );
 }
 
