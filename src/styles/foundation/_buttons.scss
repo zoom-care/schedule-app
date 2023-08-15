@@ -1,0 +1,28 @@
+.btn {
+  transition: all 0.4s;
+  border: none;
+  border-radius: map-get($spacing, "xxxs");
+  padding: map-get($spacing, "xxs") map-get($spacing, "lg");
+  font-size: $fs-base;
+  font-weight: $fw-bold;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+  margin-right: map-get($spacing, "xxs");
+  margin-bottom: map-get($spacing, "xxs");
+  :last-child {
+    margin-right: unset;
+  }
+  &-primary {
+    border-color: $btn-primary-border-color;
+    background-color: $btn-primary-bg-color;
+    color: $brn-primary-color;
+    &:hover {
+      background-color: $btn-primary-bg-color-hover;
+      color: $dark;
+    }
+    &:active {
+      background-color: $btn-primary-bg-color-active;
+    }
+  }
+}

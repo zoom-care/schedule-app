@@ -10,12 +10,12 @@ export const handlers = [
         if (!req.headers.get('Authorization')?.includes(mockAuthToken)) {
             return res(context.status(403), context.json({
                 error: "Not Authorized"
-            }))
+            }));
         }
 
         return res(context.status(200), context.json({
             appointmentSlots: mockAppointmentSlots,
-        }))
+        }));
     })),
 
     rest.get<any, any, ClinicsDto | ApiError>('/api/clinics', ((req, res, context) => {

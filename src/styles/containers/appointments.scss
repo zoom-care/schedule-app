@@ -1,0 +1,42 @@
+.appointments {
+    &__wrapper {
+        width: 100%;
+        background-color: $white;
+        display: flex;
+        flex-direction: column;
+    }
+    .appointment-item {
+        &__container {
+            @include padding('md');
+            width: 100%;
+            background-color: $white;
+            line-height: 1.2;
+            border: 1px solid $gray;
+            p:first-child {
+                font-size: $fs-lg;
+                font-weight: $fw-bold;
+            }
+        }
+        &__provider {
+            margin-top: map-get($spacing, 'lg');
+            display: flex;
+            img {
+                width: 6.5rem;
+                height: 6.5rem;
+                border-radius: 50%;
+            }
+        }
+        &__provider-info {
+            margin-left: map-get($spacing, 'sm');
+            >p:first-child {
+                color: $lightblue;
+            }
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        &__buttons {
+            margin-top: map-get($spacing, 'xxs');
+        }
+    }
+}

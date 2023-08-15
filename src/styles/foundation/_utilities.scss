@@ -1,0 +1,31 @@
+
+$sides: left, right, top, bottom;
+@each $size, $value in $fs {
+    .sch-text-#{$size} {
+        font-size: $value;
+    }
+}
+
+@each $space, $value in $spacing {
+    .sch-margin-#{$space} {
+        margin: $value;
+    }
+
+    @each $side in $sides {
+        .sch-margin-#{$side}-#{$space} {
+            margin-#{$side}: $value;
+        }
+    }
+}
+
+@each $space, $value in $spacing {
+    .sch-padding-#{$space} {
+        margin: $value;
+    }
+
+    @each $side in $sides {
+        .sch-padding-#{$side}-#{$space} {
+            margin-#{$side}: $value;
+        }
+    }
+}

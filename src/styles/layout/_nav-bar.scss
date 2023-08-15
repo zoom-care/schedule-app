@@ -1,0 +1,22 @@
+.nav-bar {
+    &__container {
+    }
+    &__item {
+        color: $dark;
+        a:visited {
+            color: unset;
+        }
+
+        a:hover {
+            color: $lightblue;
+        }
+
+        a:active {
+            color: $lightblue;
+        }
+        
+        &--active {
+            color: $red;
+        }
+    }
+}

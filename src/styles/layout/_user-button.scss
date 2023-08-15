@@ -1,0 +1,6 @@
+.user-button {
+    &__container {
+        margin-right: map-get($spacing, 'lg');
+        cursor: pointer;
+    }
+}
