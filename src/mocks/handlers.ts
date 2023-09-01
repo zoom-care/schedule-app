@@ -1,12 +1,12 @@
-import {rest} from 'msw'
-import {ApiError, AppointmentsDto, Clinic, ClinicsDto, Login, LoginResponse} from "../zoomcare-api";
+import {rest} from 'msw';
+import {IApiError, IAppointmentsDto, IClinic, IClinicsDto, ILogin, ILoginResponse} from "../zoomcare-api";
 import {mockClinics} from "./data/clinics";
 import {mockAppointmentSlots} from "./data/appointmentSlots";
 
 const mockAuthToken = Math.random().toString(36).slice(2);
 
 export const handlers = [
-    rest.get<any, any, AppointmentsDto | ApiError>("/api/appointments", ((req, res, context) => {
+    rest.get<any, any, IAppointmentsDto | IApiError>("/api/appointments", ((req, res, context) => {
         if (!req.headers.get('Authorization')?.includes(mockAuthToken)) {
             return res(context.status(403), context.json({
                 error: "Not Authorized"
@@ -18,7 +18,7 @@ export const handlers = [
         }))
     })),
 
-    rest.get<any, any, ClinicsDto | ApiError>('/api/clinics', ((req, res, context) => {
+    rest.get<any, any, IClinicsDto | IApiError>('/api/clinics', ((req, res, context) => {
         if (!req.headers.get('Authorization')?.includes(mockAuthToken)) {
             return res(context.status(403), context.json({
                 error: "Not Authorized"
@@ -30,7 +30,7 @@ export const handlers = [
         }))
     })),
 
-    rest.get<any, { clinicId: string; }, Clinic | ApiError>('/api/clinics/:clinicId', ((req, res, context) => {
+    rest.get<any, { clinicId: string; }, IClinic | IApiError>('/api/clinics/:clinicId', ((req, res, context) => {
         if (!req.headers.get('Authorization')?.includes(mockAuthToken)) {
             return res(context.status(403), context.json({
                 error: "Not Authorized"
@@ -50,7 +50,7 @@ export const handlers = [
     })),
 
     // consumes and produces "application/json" only
-    rest.post<Login, any, LoginResponse>('/api/login', (req, res, ctx) => {
+    rest.post<ILogin, any, ILoginResponse>('/api/login', (req, res, ctx) => {
         const { username, password } = req.body
         if (!!username && !!password) {
             sessionStorage.setItem("username", username)

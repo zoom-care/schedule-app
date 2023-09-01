@@ -1,16 +1,16 @@
-export interface AppointmentsDto {
-    appointmentSlots: AppointmentSlot[];
+export interface IAppointmentsDto {
+    appointmentSlots: IAppointmentSlot[];
 }
 
-export interface AppointmentSlot {
+export interface IAppointmentSlot {
     id: number;
     startTime: string;
     clinicId: number;
     durationInMinutes: number;
-    provider: Provider;
+    provider: IProvider;
 }
 
-export interface Clinic {
+export interface IClinic {
     id: number;
     name: string;
     address: string;
@@ -19,7 +19,7 @@ export interface Clinic {
     zipcode: string;
 }
 
-export interface Provider {
+export interface IProvider {
     id: number;
     name: string;
     credentials?: string;
@@ -27,20 +27,31 @@ export interface Provider {
     phoneNumber?: string;
 }
 
-export interface ClinicsDto {
-    clinics: Clinic[];
+export interface IClinicsDto {
+    clinics: IClinic[];
 }
 
-export interface Login {
+export interface ILogin {
     username: string;
     password: string;
 }
 
-export interface LoginResponse {
+export interface ILoginResponse {
     username: string;
     authToken: string;
 }
 
-export interface ApiError {
+export interface IApiError {
     error: string;
 }
+
+export interface IProviderProps {
+    appointmentSlots: string;
+    clinicCity: string;
+    clinicLocation: string;
+    clinicName: string;
+    clinicState: string;
+    clinicZipCode: string;
+    provider: IProvider;
+    durationInMinutes: number;
+  }
